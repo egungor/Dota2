@@ -156,6 +156,8 @@ footer{margin-top:3rem;color:var(--mut);font-size:.85rem;border-top:1px solid va
 .nc .c h4{margin:0;font-size:.95rem}
 .nc .c small{display:block;color:var(--gold);font-size:.74rem}
 .nc .c p{margin:.45rem 0 0;font-size:.86rem;color:#c3c8d2}
+.cardsbtn{display:inline-block;margin:.2rem 0 .2rem;padding:.55rem 1rem;border-radius:99px;background:var(--red);color:#fff;border:0;font-weight:700;font-size:.9rem}
+.cardsbtn:hover{color:#fff;filter:brightness(1.1)}
 </style>
 </head>
 <body>
@@ -528,6 +530,7 @@ document.querySelectorAll(".lang a").forEach(a=>a.addEventListener("click",()=>{
   <p class="lead">127 hero'nun tamamı değişti. Aşağıda en çok oynanışı değiştirenler var. İsimler resmi Dota 2 hero sayfalarına bağlanıyor.</p>
   <h3 style="margin-top:.6rem">Hero değişiklikleri bir bakışta</h3>
   <p class="lead" style="margin-top:0">Bu sayfada geçen hero'lar, değişiklik türüne göre gruplanmış. Hero'ya tıklayınca resmi sayfası açılır.</p>
+  <a class="cardsbtn" href="./heroes-tr.html">Hero kartlarında kaydırarak gez →</a>
   <div class="mx" id="heromatrix"></div>
   <div class="grid g2" id="reworks"></div>
 </section>
@@ -784,7 +787,7 @@ hbar($("#spellChart"),[
   BUFFS.forEach(([h])=>{if(!seen.has(h)){seen.add(h);groups.buff.push(h)}});
   NERFS.forEach(([h])=>{if(!seen.has(h)){seen.add(h);groups.nerf.push(h)}});
   const label={rework:"Rework",buff:"Güçlenenler",nerf:"Zayıflayanlar"};
-  $("#heromatrix").innerHTML=["rework","buff","nerf"].map(k=>`<div class="col ${k}"><h4><span class="pill ${k}">${label[k]}</span><span class="n">${groups[k].length}</span></h4><div class="tiles">${groups[k].map(h=>`<a class="hero tile" data-n="${h}"><span class="pic"><span class="bd">${initials(h)}</span>${heroPic(h)}</span>${h}</a>`).join("")}</div></div>`).join("");
+  $("#heromatrix").innerHTML=["rework","buff","nerf"].map(k=>`<div class="col ${k}"><h4><span class="pill ${k}">${label[k]}</span><span class="n">${groups[k].length}</span></h4><div class="tiles">${groups[k].map(h=>`<a class="tile" href="./heroes-tr.html#${h.toLowerCase().replace(/['’]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}"><span class="pic"><span class="bd">${initials(h)}</span>${heroPic(h)}</span>${h}</a>`).join("")}</div></div>`).join("");
 })();
 document.querySelectorAll(".hornicon").forEach(e=>e.outerHTML=itemBig("Greater Horn of Battle"));
 /* ---------- item icons in tables & lists ---------- */

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dota 2 Patch 7.42 — Hero Kartları</title>
+<link rel="alternate" hreflang="en" href="./heroes.html">
+<link rel="alternate" hreflang="tr" href="./heroes-tr.html">
+<link rel="icon" type="image/png" href="../../assets/img/dota2-logo.png">
+<link rel="apple-touch-icon" href="../../assets/img/dota2-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0d10;--panel:#14181e;--line:#2a313d;--txt:#e9ebef;--mut:#9aa3b2;--red:#d0412f;--gold:#e3b456;--rework:#a981f0;--buff:#4cc38a;--nerf:#ff6b5a}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 Inter,system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+.top{position:sticky;top:0;z-index:20;background:rgba(11,13,16,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .row{display:flex;align-items:center;gap:.6rem;padding:.6rem .9rem;max-width:1100px;margin:0 auto}
+.top .back{font-size:.85rem;color:var(--mut);white-space:nowrap}
+.top .back:hover{color:#fff}
+.top h1{font-family:Cinzel,serif;font-size:1rem;margin:0;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lang{display:flex;gap:2px;background:#151920;border:1px solid var(--line);border-radius:99px;padding:3px}
+.lang a{padding:.2rem .65rem;border-radius:99px;font-size:.78rem;font-weight:800;color:var(--mut)}
+.lang a.on{background:var(--red);color:#fff}
+.chips{display:flex;gap:.4rem;padding:0 .9rem .6rem;max-width:1100px;margin:0 auto;overflow-x:auto;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;border:1px solid var(--line);background:#151920;color:var(--mut);border-radius:99px;padding:.3rem .8rem;font:600 .82rem Inter,sans-serif;cursor:pointer}
+.chip b{font-weight:800;margin-left:.25rem;color:#fff}
+.chip.on{color:#fff;border-color:#fff}
+.chip[data-k=rework].on{background:rgba(169,129,240,.18);border-color:var(--rework)}
+.chip[data-k=buff].on{background:rgba(76,195,138,.18);border-color:var(--buff)}
+.chip[data-k=nerf].on{background:rgba(255,107,90,.16);border-color:var(--nerf)}
+.progress{height:3px;background:#1b2029}
+.progress i{display:block;height:100%;width:0;background:var(--red);transition:width .2s}
+
+.stage{position:relative;max-width:1100px;margin:0 auto}
+.track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px max(18px,calc(50% - 260px)) 28px;scrollbar-width:none;align-items:flex-start;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.card{--c:var(--rework);flex:0 0 min(520px,calc(100vw - 36px));scroll-snap-align:center;scroll-snap-stop:always;background:#0d1014;border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative}
+.card.buff{--c:var(--buff)}.card.nerf{--c:var(--nerf)}
+.card[hidden]{display:none}
+.art{position:relative;aspect-ratio:16/10;background:radial-gradient(120% 90% at 80% 10%,color-mix(in srgb,var(--c) 45%,transparent),transparent 60%),#11151b;overflow:hidden}
+.art img.hero{position:absolute;right:0;top:0;width:100%;height:100%;object-fit:cover;object-position:70% 20%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%);mask-image:linear-gradient(90deg,transparent 0%,#000 45%)}
+.art .initial{position:absolute;right:6%;top:12%;font:900 6.5rem/1 Cinzel,serif;color:color-mix(in srgb,var(--c) 35%,transparent)}
+.art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,16,20,.15) 0%,rgba(13,16,20,0) 35%,rgba(13,16,20,.75) 80%,#0d1014 100%)}
+.art .hd{position:absolute;left:18px;top:16px;z-index:2}
+.brand{display:flex;align-items:center;gap:.45rem;font:800 .78rem Cinzel,serif;letter-spacing:2px;color:#fff}
+.brand img{width:20px;height:20px}
+.badge{display:inline-flex;margin-top:.5rem;border:2px solid var(--red);font:900 1.05rem/1 Inter,sans-serif;letter-spacing:.5px}
+.badge span{padding:.28rem .5rem}
+.badge span:first-child{background:var(--red);color:#fff}
+.count{position:absolute;right:14px;top:14px;z-index:2;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.15);border-radius:99px;padding:.2rem .65rem;font:600 .8rem Inter,sans-serif}
+.body{padding:0 18px 18px;margin-top:-62px;position:relative;z-index:3}
+.name{font:900 2.35rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.5px;margin:0;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.name a:hover{text-decoration:underline}
+.sum{font-style:italic;font-weight:500;color:#d7dbe2;margin:.45rem 0 .2rem}
+.type{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--c);border:1px solid color-mix(in srgb,var(--c) 60%,transparent);border-radius:99px;padding:.1rem .55rem;margin-top:.35rem}
+.bar{width:64px;height:5px;background:var(--red);margin:.9rem 0 1rem}
+.sec{font:italic 900 1.15rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.5px;margin:1.1rem 0 .6rem;display:flex;align-items:center;gap:.4rem}
+.sec::before{content:"/";color:var(--red);font-size:1.35rem}
+.ab{display:grid;grid-template-columns:58px 1fr;gap:0 14px;padding:.75rem 0;border-top:1px solid rgba(255,255,255,.12)}
+.ab:first-of-type{border-top:0}
+.ic{position:relative;width:58px;height:58px;border-radius:9px;overflow:hidden;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 55%,#111),#111);display:grid;place-items:center;font:800 1rem Cinzel,serif;color:#fff;border:1px solid rgba(255,255,255,.12)}
+.ic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ic .tag{position:absolute;left:0;right:0;bottom:0;font:800 .5rem Inter,sans-serif;letter-spacing:.8px;text-transform:uppercase;background:rgba(0,0,0,.65);text-align:center;padding:1px 0;z-index:2}
+.ab .tx{border-left:2px solid rgba(255,255,255,.75);padding-left:12px;min-width:0}
+.ab h3{margin:0 0 .3rem;font:900 1.02rem/1.15 Inter,sans-serif;text-transform:uppercase;letter-spacing:.3px}
+.ab ul{list-style:none;margin:0;padding:0}
+.ab li{position:relative;padding-left:20px;margin:.2rem 0;font-size:.92rem;color:#e2e5ea;font-style:italic}
+.ab li::before{content:"";position:absolute;left:2px;top:.45em;width:9px;height:9px;background:var(--c)}
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--line);font-size:.82rem;color:var(--mut)}
+.foot a{color:var(--gold)}
+.nav{position:absolute;top:220px;z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(20,24,30,.9);color:#fff;font-size:1.3rem;cursor:pointer;display:grid;place-items:center}
+.nav.prev{left:8px}.nav.next{right:8px}
+.nav:disabled{opacity:.3;cursor:default}
+@media (max-width:640px){.nav{display:none}.name{font-size:2rem}}
+.hint{text-align:center;color:var(--mut);font-size:.8rem;margin:-14px 0 24px}
+.empty{padding:3rem 1rem;text-align:center;color:var(--mut)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="row">
+    <a class="back" href="./tr.html#heroes">← Patch 7.42</a>
+    <h1>Patch 7.42 · Hero kartları</h1>
+    <nav class="lang" aria-label="Language"><a href="./heroes.html" data-l="en" lang="en">EN</a><a href="./heroes-tr.html" data-l="tr" lang="tr" class="on">TR</a></nav>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="progress"><i id="prog"></i></div>
+</header>
+<main class="stage">
+  <button class="nav prev" id="prev" aria-label="Önceki hero">‹</button>
+  <div class="track" id="track"></div>
+  <button class="nav next" id="next" aria-label="Sonraki hero">›</button>
+</main>
+<p class="hint">Hero'lar arasında geçmek için kaydır ya da ← → tuşlarını kullan.</p>
+<script src="./heroes-data.js"></script>
+<script>
+const L="tr";
+const T={"all": "Tümü", "k": {"rework": "Rework", "buff": "Güçlendi", "nerf": "Zayıfladı"}, "abilities": "Yetenekler", "talents": "Yetenek ağacı", "talentTree": "Talentler", "hero": "Hero", "heroStats": "Hero değerleri", "innate": "Innate", "official": "Resmi hero sayfası"};
+const CDN="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/";
+const HERO_ID={"Nature's Prophet":"furion","Shadow Fiend":"nevermore","Queen of Pain":"queenofpain","Treant Protector":"treant","Clockwerk":"rattletrap","Outworld Destroyer":"obsidian_destroyer","Windranger":"windrunner","Io":"wisp","Necrophos":"necrolyte","Zeus":"zuus","Lifestealer":"life_stealer","Underlord":"abyssal_underlord","Doom":"doom_bringer","Magnus":"magnataur","Timbersaw":"shredder","Wraith King":"skeleton_king","Vengeful Spirit":"vengefulspirit","Anti-Mage":"antimage","Centaur Warrunner":"centaur"};
+const snake=s=>s.toLowerCase().replace(/['’]/g,"").replace(/[^a-z0-9]+/g,"_").replace(/^_|_$/g,"");
+const heroId=n=>HERO_ID[n]||snake(n);
+const slug=n=>snake(n).replace(/_/g,"-");
+const initials=n=>n.replace(/['’]/g,"").split(/[\s-]+/).filter(w=>!/^(of|the)$/i.test(w)).map(w=>w[0]).join("").slice(0,2).toUpperCase();
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+document.querySelectorAll(".lang a").forEach(a=>a.addEventListener("click",e=>{try{localStorage.setItem("dota742-lang",a.dataset.l)}catch(_){ } a.href=a.getAttribute("href").split("#")[0]+location.hash}));
+
+function iconFor(c,a){
+  if(a.hero) return `<span class="ic"><img src="${CDN}heroes/${heroId(c.h)}.png" alt="" style="object-position:70% 20%" onerror="this.remove()"><span class="tag">${T.hero}</span></span>`;
+  if(a.shard) return `<span class="ic"><img src="${CDN}items/aghanims_shard.png" alt="" onerror="this.remove()">${initials(a.n)}</span>`;
+  const tag=a.innate?`<span class="tag">${T.innate}</span>`:(a.scepter?`<span class="tag">Scepter</span>`:"");
+  const src=a.ic||(heroId(c.h)+"_"+snake(a.n));
+  return `<span class="ic">${initials(a.n)}<img src="${CDN}abilities/${src}.png" alt="" loading="lazy" onerror="this.remove()">${tag}</span>`;
+}
+function card(c,i,n){
+  const id=heroId(c.h), s=slug(c.h);
+  const ab=c.a.map(a=>`<div class="ab">${iconFor(c,a)}<div class="tx"><h3${a.hero?"":` lang="en"`}>${a.hero?T.heroStats:esc(a.n)}</h3><ul>${a.c[L].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div>`).join("");
+  const tal=c.t?`<div class="sec">${T.talents}</div><div class="ab"><span class="ic"><svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="20" cy="20" r="16"/><path d="M20 33V12M20 18l-6-5M20 18l6-5M20 25l-7-5M20 25l7-5"/></svg></span><div class="tx"><h3>${T.talentTree}</h3><ul>${c.t[L].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div>`:"";
+  return `<article class="card ${c.k}" data-slug="${s}" data-k="${c.k}">
+    <div class="art"><span class="initial">${initials(c.h)}</span><img class="hero" src="${CDN}heroes/${id}.png" alt="" loading="${i<3?"eager":"lazy"}" onerror="this.remove()">
+      <div class="hd"><div class="brand"><img src="../../assets/img/dota2-logo.png" alt="">DOTA 2</div><div class="badge"><span>PATCH</span><span>${window.PATCH}</span></div></div>
+      <span class="count"><span class="ci">${i+1}</span>/<span class="cn">${n}</span></span></div>
+    <div class="body">
+      <h2 class="name" lang="en"><a href="https://www.dota2.com/hero/${c.h.toLowerCase().replace(/[^a-z]/g,"")}" target="_blank" rel="noopener">${esc(c.h)}</a></h2>
+      <p class="sum">${esc(c.s[L])}</p>
+      <span class="type">${T.k[c.k]}</span>
+      <div class="bar"></div>
+      <div class="sec">${T.abilities}</div>${ab}${tal}
+      <div class="foot"><span>Patch ${window.PATCH}</span><a href="https://www.dota2.com/hero/${c.h.toLowerCase().replace(/[^a-z]/g,"")}" target="_blank" rel="noopener">${T.official} ↗</a></div>
+    </div></article>`;
+}
+const DATA=window.HERO_CARDS, track=document.getElementById("track");
+track.innerHTML=DATA.map((c,i)=>card(c,i,DATA.length)).join("");
+const cards=[...track.querySelectorAll(".card")];
+let filter="all";
+const counts={all:DATA.length,rework:0,buff:0,nerf:0}; DATA.forEach(c=>counts[c.k]++);
+document.getElementById("chips").innerHTML=["all","rework","buff","nerf"].map(k=>`<button class="chip${k==="all"?" on":""}" data-k="${k}">${k==="all"?T.all:T.k[k]}<b>${counts[k]}</b></button>`).join("");
+const visible=()=>cards.filter(c=>!c.hidden);
+function renumber(){const v=visible();v.forEach((c,i)=>{c.querySelector(".ci").textContent=i+1;c.querySelector(".cn").textContent=v.length})}
+function current(){const v=visible(),mid=track.scrollLeft+track.clientWidth/2;let best=0,bd=1e9;v.forEach((c,i)=>{const d=Math.abs(c.offsetLeft+c.offsetWidth/2-mid);if(d<bd){bd=d;best=i}});return best}
+function go(i,smooth=true){const v=visible();if(!v.length)return;i=Math.max(0,Math.min(v.length-1,i));const c=v[i];track.scrollTo({left:c.offsetLeft-(track.clientWidth-c.offsetWidth)/2,behavior:smooth?"smooth":"auto"})}
+function update(){const v=visible(),i=current();document.getElementById("prog").style.width=(v.length?((i+1)/v.length*100):0)+"%";document.getElementById("prev").disabled=i<=0;document.getElementById("next").disabled=i>=v.length-1;const id=v[i]&&v[i].dataset.slug;if(id&&location.hash.slice(1)!==id)history.replaceState(null,"","#"+id)}
+document.getElementById("chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;filter=b.dataset.k;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===b));cards.forEach(c=>c.hidden=!(filter==="all"||c.dataset.k===filter));renumber();go(0,false);update()});
+document.getElementById("prev").onclick=()=>go(current()-1);
+document.getElementById("next").onclick=()=>go(current()+1);
+document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")go(current()+1);if(e.key==="ArrowLeft")go(current()-1)});
+let t;track.addEventListener("scroll",()=>{clearTimeout(t);t=setTimeout(update,80)},{passive:true});
+window.addEventListener("resize",()=>go(current(),false));
+try{history.scrollRestoration="manual"}catch(_){}
+const start=cards.findIndex(c=>c.dataset.slug===location.hash.slice(1));
+requestAnimationFrame(()=>{window.scrollTo(0,0);go(start>0?start:0,false);update()});
+</script>
+</body>
+</html>
