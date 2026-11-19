@@ -25,10 +25,9 @@ Görsel Dota 2 yama özetleri (web) ve ileride geliştirilecek uygulama için re
 
 ## Yayınlama (GitHub Pages)
 
-Settings → Pages → Build and deployment:
+Settings → Pages → Build and deployment → **Source: GitHub Actions**
 
-- **Source:** Deploy from a branch
-- **Branch:** `main` / **Folder:** `/docs`
+`.github/workflows/pages.yml`, `main` dalına `docs/` altında yapılan her push'ta siteyi otomatik yayınlar. (Alternatif: Source olarak "Deploy from a branch" → `main` / `/docs` seçilirse iş akışına gerek kalmaz.)
 
 Site adresi: `https://egungor.github.io/Dota2/`
 
