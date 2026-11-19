@@ -7,6 +7,8 @@
 <link rel="alternate" hreflang="en" href="./index.html">
 <link rel="alternate" hreflang="tr" href="./tr.html">
 <link rel="alternate" hreflang="x-default" href="./index.html">
+<link rel="icon" type="image/png" href="../../assets/img/dota2-logo.png">
+<link rel="apple-touch-icon" href="../../assets/img/dota2-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -127,6 +129,30 @@ footer{margin-top:3rem;color:var(--mut);font-size:.85rem;border-top:1px solid va
 .lang a.on{background:var(--red);color:#fff}
 .pool .nd{display:block;font-size:.76rem;line-height:1.38;color:var(--mut);margin:.05rem 0 .55rem 1.6rem}
 .pool .nd b{color:var(--gold);font-weight:700}
+.pic.big{width:58px;height:58px;flex:0 0 58px;border-radius:10px;overflow:hidden;border:1px solid rgba(227,180,86,.45);background:linear-gradient(135deg,#8e5a1a,#111);display:inline-grid;place-items:center;font-family:Cinzel;font-weight:800;color:#fff;vertical-align:middle}
+.pic.big>img{border-radius:10px}
+.hornhead{display:flex;align-items:center;gap:.8rem;margin-bottom:.4rem}
+.hornhead h3{margin:0}
+.mx{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0 1.4rem}
+.mx .col{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:.9rem}
+.mx .col h4{margin:0 0 .7rem;display:flex;align-items:center;gap:.5rem;font-size:.95rem}
+.mx .col h4 span.n{color:var(--mut);font-weight:500;font-size:.8rem}
+.mx .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:.55rem}
+.mx a.tile{display:block;border:0;text-align:center;color:#e6e8ec;font-size:.72rem;line-height:1.25}
+.mx a.tile:hover{color:#fff}
+.mx a.tile .pic{width:100%;aspect-ratio:16/9;height:auto;display:block;border-radius:7px;overflow:hidden;margin-bottom:.25rem;border:2px solid transparent}
+.mx .col.rework a.tile .pic{border-color:rgba(169,129,240,.55)}
+.mx .col.buff a.tile .pic{border-color:rgba(76,195,138,.55)}
+.mx .col.nerf a.tile .pic{border-color:rgba(255,123,107,.55)}
+.mx a.tile .bd{position:absolute;inset:0;display:grid;place-items:center;background:#2a313d;font-weight:800;font-family:Cinzel;color:#bbb}
+@media (max-width:900px){.mx{grid-template-columns:1fr}}
+.nc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem;margin-top:.8rem}
+.nc .c{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:.85rem .95rem}
+.nc .c .t{display:flex;align-items:center;gap:.6rem}
+.nc .c .t svg{flex:0 0 38px}
+.nc .c h4{margin:0;font-size:.95rem}
+.nc .c small{display:block;color:var(--gold);font-size:.74rem}
+.nc .c p{margin:.45rem 0 0;font-size:.86rem;color:#c3c8d2}
 </style>
 </head>
 <body>
@@ -313,7 +339,7 @@ document.querySelectorAll(".lang a").forEach(a=>a.addEventListener("click",()=>{
       <p style="font-size:.88rem">2. ölümden itibaren her seferinde bir <a class="item">Aghanim's Shard</a> da düşürüyor (takımda zaten varsa altın verilir).</p>
     </div>
     <div class="panel" style="border-color:rgba(227,180,86,.45)">
-      <h3 style="margin-top:0">Yeni: Greater Horn of Battle <span class="pill new">YENİ</span></h3>
+      <div class="hornhead"><span class="hornicon"></span><h3>Yeni: Greater Horn of Battle <span class="pill new">YENİ</span></h3></div>
       <svg viewBox="0 0 300 90" style="width:100%;height:auto" aria-hidden="true">
         <defs><linearGradient id="hg" x1="0" x2="1"><stop offset="0" stop-color="#e3b456"/><stop offset="1" stop-color="#8e5a1a"/></linearGradient></defs>
         <path d="M20 60 Q60 20 120 30 L130 50 Q70 50 30 72 Z" fill="url(#hg)"/>
@@ -420,6 +446,12 @@ document.querySelectorAll(".lang a").forEach(a=>a.addEventListener("click",()=>{
       </table>
     </div>
   </div>
+  <div class="panel" style="margin-top:1rem">
+    <h3 style="margin-top:0">Yeni neutral creepler</h3>
+    <p style="font-size:.92rem;color:#c3c8d2;margin-top:0">7.42 mevcut neutral creeplerin çoğunu daha dayanıklı ve daha sert vuran hale getirdi; büyü kullanımları da artık daha az tahmin edilebilir. Amfibi ve ancient olmayan her kamp tek bir tarafa ait ve neutral creepler iki takımın defender kapılarından da geçebiliyor.</p>
+    <div class="nc"><div class="c"><div class="t"><svg viewBox="0 0 40 40" width="38" height="38"><circle cx="20" cy="20" r="19" fill="#24405a"/><path d="M8 22c6-8 18-10 24-4-5 0-8 2-10 5-4-2-9-2-14-1z" fill="#cfe6ff"/><circle cx="26" cy="17" r="1.6" fill="#24405a"/><ellipse cx="12" cy="30" rx="3" ry="4" fill="#e3b456"/><ellipse cx="29" cy="30" rx="3" ry="4" fill="#e3b456"/></svg><div><h4>Radigull</h4><small>Radiant · orta kamp · 2 birim</small></div></div><p>Seviye 4, menzilli kuş. Kendisine saldıranın iki yanına 2 yumurta bırakır; yumurtalar patlayıp büyü hasarı verir ve susturur.</p></div><div class="c"><div class="t"><svg viewBox="0 0 40 40" width="38" height="38"><circle cx="20" cy="20" r="19" fill="#2a3f55"/><ellipse cx="20" cy="21" rx="11" ry="9" fill="#9fb6c9"/><path d="M16 25l-1 8M24 25l1 8" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="18" r="1.5" fill="#1b2029"/><circle cx="24" cy="18" r="1.5" fill="#1b2029"/><circle cx="31" cy="9" r="3.5" fill="#e6f3ff"/></svg><div><h4>Odobenus</h4><small>Dire · orta kamp · 1 Frostmage + 2 Footman</small></div></div><p>Seviye 5 Frostmage, müttefik ve düşman birimler arasında seken bir kartopu atar. Seviye 3 Footman'ların saldırıları hedefin zırhını 4 sn düşürür.</p></div><div class="c"><div class="t"><svg viewBox="0 0 40 40" width="38" height="38"><circle cx="20" cy="20" r="19" fill="#3d2f22"/><ellipse cx="20" cy="23" rx="11" ry="9" fill="#8a6a4a"/><ellipse cx="20" cy="26" rx="4" ry="3" fill="#e0a0a0"/><circle cx="15" cy="20" r="1.4" fill="#1b2029"/><circle cx="25" cy="20" r="1.4" fill="#1b2029"/><path d="M8 33l6-5M32 33l-6-5" stroke="#e3b456" stroke-width="2.4" stroke-linecap="round"/></svg><div><h4>Eimermole</h4><small>Radiant · büyük kamp · 1 Foreman + 1 Eimermole</small></div></div><p>Seviye 5 Foreman yere vurma (slam) yeteneğine sahip. Eimermole'un pasifi vurduğu düşmanın can yenilenmesini azaltır.</p></div><div class="c"><div class="t"><svg viewBox="0 0 40 40" width="38" height="38"><circle cx="20" cy="20" r="19" fill="#3a2a4a"/><ellipse cx="20" cy="22" rx="13" ry="10" fill="#7f9fb5"/><circle cx="15" cy="19" r="1.6" fill="#1b2029"/><circle cx="25" cy="19" r="1.6" fill="#1b2029"/><path d="M6 34h28" stroke="#a981f0" stroke-width="2.4" stroke-dasharray="3 3"/></svg><div><h4>Ancient Ogre Seal</h4><small>Ancient kamp · 1 Ogre Seal + 2 yavru</small></div></div><p>İki kez öne doğru atılır ve her atılıştan sonra yere vurur.</p></div></div>
+    <p style="font-size:.85rem;color:var(--mut);margin:.9rem 0 0"><b style="color:#e6e8ec">Kamp dizilimi (Radiant tarafı):</b> Orta: Wolf, Ogre, <b>Radigull</b> · Büyük: Centaur, Wildwing, <b>Eimermole</b>. Dire tarafına yeni <b>Odobenus</b> orta kampı geldi. Kaldırılanlar: orta Centaur, büyük Warpine Raider ve Ancient Thunderhide kampları.</p>
+  </div>
 </section>
 
 <!-- ITEMLER -->
@@ -491,6 +523,9 @@ document.querySelectorAll(".lang a").forEach(a=>a.addEventListener("click",()=>{
 <section id="heroes">
   <h2><span class="num">11</span> Hero reworkleri ve büyük değişiklikler</h2>
   <p class="lead">127 hero'nun tamamı değişti. Aşağıda en çok oynanışı değiştirenler var. İsimler resmi Dota 2 hero sayfalarına bağlanıyor.</p>
+  <h3 style="margin-top:.6rem">Hero değişiklikleri bir bakışta</h3>
+  <p class="lead" style="margin-top:0">Bu sayfada geçen hero'lar, değişiklik türüne göre gruplanmış. Hero'ya tıklayınca resmi sayfası açılır.</p>
+  <div class="mx" id="heromatrix"></div>
   <div class="grid g2" id="reworks"></div>
 </section>
 
@@ -547,6 +582,7 @@ const ICONS = {
   box:'<path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/>'
 };
 const NEW_ITEMS = [
+  {n:"Greater Horn of Battle", drop:true, col:"#8e5a1a", tag:"Tormentor ödülü", d:"Tormentor her ölümde kesin düşürür. Global menzil, mana ve cooldown yok, tek şarj, çantadan bile kullanılabilir. Her koridora, her birinde en az bir siege ve bir Flagbearer olan mega creep dalgası çağırır."},
   {n:"Quarterstaff", c:"900", col:"#7a5a2e", tag:"Geri döndü", d:"+10 hasar, +10 saldırı hızı. Butterfly, MKB, Mask of Madness ve Maelstrom tariflerinde Javelin/Claymore'un yerini alıyor."},
   {n:"Bloodslinger", c:"925", col:"#8e2418", r:"Sage's Mask + 2× Mantle of Intelligence + Blood Grenade + tarif", d:"+100 can, +8 Int. Aktif Sling Grenade: 300 alanda 50 hasar, 5 sn boyunca hasar ve %30→%15 yavaşlatma; 1.200 menzil, 75 can bedeli."},
   {n:"Caduceus", c:"5.400", col:"#2f6f8e", r:"Force Staff + Phylactery + tarif", d:"Force Staff aktifi. Pasif Empower Spell: bir sonraki hedefli büyün düşmana +175 hasar ve %40 yavaşlatma, müttefike 200 iyileştirme ve hız veriyor."},
@@ -631,15 +667,18 @@ const HERO_ID={"Nature's Prophet":"furion","Shadow Fiend":"nevermore","Queen of 
 const ITEM_ID={"Khanda":"angels_demise","Eye of Skadi":"skadi","Manta Style":"manta","Slippers of Agility":"slippers","Aegis of the Immortal":"aegis","Orb of Blight":"blight_stone","Parasma":"devastator","Skull Basher":"basher","Vladmir's Offering":"vladmir","Armlet of Mordiggian":"armlet","Sage's Mask":"sobi_mask","Mantle of Intelligence":"mantle","Tumbler's Toy":"pogo_stick","Book of the Dead":"demonicon","Stygian Desolator":"desolator_2","Giant's Maul":"giant_maul","Gunpowder Gauntlets":"gunpowder_gauntlet"};
 const itemId=n=>ITEM_ID[n]||n.toLowerCase().replace(/['’]/g,"").replace(/[\s-]+/g,"_");
 const heroId=n=>HERO_ID[n]||n.toLowerCase().replace(/['’]/g,"").replace(/[\s-]+/g,"_");
-const IMG_ERR='onerror="this.remove()" loading="lazy" referrerpolicy="no-referrer"';
+const IMG_ERR='onerror="imgNext(this)" loading="lazy" referrerpolicy="no-referrer"';
+const ITEM_ALTS={"Sabatons of Mordiggian":["sabatons_of_mordiggian","sabatons","mordiggian_sabatons","armlet_boots"],"Greater Horn of Battle":["greater_horn_of_battle","horn_of_battle","greater_horn","tormentor_horn"]};
+function imgNext(el){const a=(el.dataset.alt||'').split('|').filter(Boolean);if(a.length){el.dataset.alt=a.slice(1).join('|');el.src=CDN+'items/'+a[0]+'.png'}else el.remove()}
 function heroPic(n){return `<img src="${CDN}heroes/${heroId(n)}.png" alt="" ${IMG_ERR}>`}
 function heroSmall(n){return `<span class="pic sm"><span class="bd">${initials(n)}</span>${heroPic(n)}</span>`}
-function itemPic(n){return `<img src="${CDN}items/${itemId(n)}.png" alt="" ${IMG_ERR}>`}
+function itemPic(n){const c=ITEM_ALTS[n]||[itemId(n)];return `<img src="${CDN}items/${c[0]}.png" data-alt="${c.slice(1).join('|')}" alt="" ${IMG_ERR}>`}
+function itemBig(n){return `<span class="pic big">${initials(n)}${itemPic(n)}</span>`}
 function itemSmall(n){return `<span class="pic it"><span class="bd">${initials(n)}</span>${itemPic(n)}</span>`}
 /* ---------- render content ---------- */
 $("#keycards").innerHTML = KEY.map(k=>`<div class="kc"><div class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#ff8a78" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONS[k.i]}</svg></div><h4>${k.t}</h4><p>${k.d}</p></div>`).join("");
 
-$("#newitems").innerHTML = NEW_ITEMS.map(it=>`<div class="itm"><div class="ic" style="background:linear-gradient(135deg,${it.col},#111)">${initials(it.n)}${itemPic(it.n)}</div><div><h4>${itemLink(it.n)} <span class="pill new">${it.tag||"Yeni"}</span></h4><div class="cost">◆ ${it.c} altın</div><p>${it.d}</p>${it.r?`<div class="rec">Tarif: ${it.r.split(" + ").map(p=>/tarif|^\d/.test(p)?p:p.replace(/^(\d×\s)?(.*)$/,(m,a,b)=>(a||"")+itemLink(b))).join(" + ")}</div>`:""}</div></div>`).join("");
+$("#newitems").innerHTML = NEW_ITEMS.map(it=>`<div class="itm"><div class="ic" style="background:linear-gradient(135deg,${it.col},#111)">${initials(it.n)}${itemPic(it.n)}</div><div><h4>${itemLink(it.n)} <span class="pill new">${it.tag||"Yeni"}</span></h4><div class="cost">◆ ${it.drop?"Tormentor ödülü":it.c+" altın"}</div><p>${it.d}</p>${it.r?`<div class="rec">Tarif: ${it.r.split(" + ").map(p=>/tarif|^\d/.test(p)?p:p.replace(/^(\d×\s)?(.*)$/,(m,a,b)=>(a||"")+itemLink(b))).join(" + ")}</div>`:""}</div></div>`).join("");
 
 $("#tiers").innerHTML = TIERS.map(t=>`<div class="tier"><header>${t.t}<span>${t.at}'da açılır</span></header><div class="pools">${t.p.map((p,i)=>`<div class="pool"><small>Havuz ${i+1}</small>${p.map(x=>itemLink(x)+(NEW_NEUTRALS.has(x)?' <span class="pill new" style="font-size:.62rem">yeni/dönüş</span>':'')+(ND[x]?`<span class="nd">${ND[x].replace(/^(NEW|YENİ):/,'<b>$1</b>:')}</span>`:'')).join("")}</div>`).join("")}</div></div>`).join("");
 $("#removedNeutrals").innerHTML = REMOVED_N.map(n=>`<span class="chip">${itemLink(n)}</span>`).join("");
@@ -735,6 +774,16 @@ hbar($("#spellChart"),[
   $("#tierChart").innerHTML=s+"</svg>";
 })();
 
+/* ---------- hero matrix ---------- */
+(function(){
+  const groups={rework:[],buff:[],nerf:[]}, seen=new Set();
+  REWORKS.forEach(r=>{if(!seen.has(r.h)){seen.add(r.h);groups[r.k].push(r.h)}});
+  BUFFS.forEach(([h])=>{if(!seen.has(h)){seen.add(h);groups.buff.push(h)}});
+  NERFS.forEach(([h])=>{if(!seen.has(h)){seen.add(h);groups.nerf.push(h)}});
+  const label={rework:"Rework",buff:"Güçlenenler",nerf:"Zayıflayanlar"};
+  $("#heromatrix").innerHTML=["rework","buff","nerf"].map(k=>`<div class="col ${k}"><h4><span class="pill ${k}">${label[k]}</span><span class="n">${groups[k].length}</span></h4><div class="tiles">${groups[k].map(h=>`<a class="hero tile" data-n="${h}"><span class="pic"><span class="bd">${initials(h)}</span>${heroPic(h)}</span>${h}</a>`).join("")}</div></div>`).join("");
+})();
+document.querySelectorAll(".hornicon").forEach(e=>e.outerHTML=itemBig("Greater Horn of Battle"));
 /* ---------- item icons in tables & lists ---------- */
 document.querySelectorAll("table a.item, .pool a.item, .chips a.item, .rec a.item").forEach(a=>{
   const n=(a.dataset.n||a.textContent).trim();
