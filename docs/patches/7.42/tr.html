@@ -100,12 +100,13 @@ td.n{color:#fff;font-weight:600}
 .tier{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:.8rem}
 .tier header{display:flex;justify-content:space-between;align-items:center;padding:.55rem .9rem;background:var(--panel2);font-weight:600}
 .tier header span{color:var(--mut);font-size:.82rem;font-weight:500}
-.pools{display:grid;grid-template-columns:repeat(4,1fr)}
-.pool{padding:.6rem .8rem;border-right:1px solid var(--line);font-size:.86rem}
+.pools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.pool{padding:.6rem .8rem;border-right:1px solid var(--line);font-size:.86rem;min-width:0;overflow-wrap:anywhere}
 .pool:last-child{border-right:0}
 .pool small{display:block;color:var(--mut);font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;margin-bottom:.2rem}
-.pool a{display:block;width:max-content;max-width:100%;margin:.12rem 0}
-@media (max-width:900px){.wrap{grid-template-columns:1fr}nav.toc{display:none}.banner h1{font-size:2.3rem}.pools{grid-template-columns:repeat(2,1fr)}.pool:nth-child(2){border-right:0}}
+.pool a{display:block;max-width:100%;margin:.12rem 0}
+@media (max-width:900px){.wrap{grid-template-columns:1fr}nav.toc{display:none}.banner h1{font-size:2.3rem}.pools{grid-template-columns:repeat(2,minmax(0,1fr))}.pool:nth-child(2){border-right:0}.pool:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:560px){.pools{grid-template-columns:minmax(0,1fr)}.pool{border-right:0;border-bottom:1px solid var(--line)}.pool:last-child{border-bottom:0}.pool .nd{margin-left:1.6rem}}
 footer{margin-top:3rem;color:var(--mut);font-size:.85rem;border-top:1px solid var(--line);padding-top:1rem}
 .chips{display:flex;flex-wrap:wrap;gap:.4rem}
 .chip{background:var(--panel2);border:1px solid var(--line);border-radius:99px;padding:.2rem .65rem;font-size:.85rem}
@@ -670,7 +671,7 @@ const ITEM_ID={"Khanda":"angels_demise","Eye of Skadi":"skadi","Manta Style":"ma
 const itemId=n=>ITEM_ID[n]||n.toLowerCase().replace(/['’]/g,"").replace(/[\s-]+/g,"_");
 const heroId=n=>HERO_ID[n]||n.toLowerCase().replace(/['’]/g,"").replace(/[\s-]+/g,"_");
 const IMG_ERR='onerror="imgNext(this)" loading="lazy" referrerpolicy="no-referrer"';
-const ITEM_ALTS={"Sabatons of Mordiggian":["../../assets/img/items/sabatons_of_mordiggian.png","sabatons_of_mordiggian","mordiggian_sabatons","sabatons","phase_armlet","armlet_phase","mordiggian_boots","boots_of_mordiggian","armlet_boots"],"Greater Horn of Battle":["../../assets/img/items/greater_horn_of_battle.png","greater_horn_of_battle","horn_of_battle","greater_horn","tormentor_horn"]};
+const ITEM_ALTS={"Gunpowder Gauntlets":["gunpowder_gauntlets","gunpowder_gauntlet","gunpowder_gloves"],"Sabatons of Mordiggian":["../../assets/img/items/sabatons_of_mordiggian.png","sabatons_of_mordiggian","mordiggian_sabatons","sabatons","phase_armlet","armlet_phase","mordiggian_boots","boots_of_mordiggian","armlet_boots"],"Greater Horn of Battle":["../../assets/img/items/greater_horn_of_battle.png","greater_horn_of_battle","horn_of_battle","greater_horn","tormentor_horn"]};
 function imgNext(el){const a=(el.dataset.alt||'').split('|').filter(Boolean);if(a.length){el.dataset.alt=a.slice(1).join('|');el.src=a[0].includes('/')?a[0]:CDN+'items/'+a[0]+'.png'}else el.remove()}
 function heroPic(n){return `<img src="${CDN}heroes/${heroId(n)}.png" alt="" ${IMG_ERR}>`}
 function heroSmall(n){return `<span class="pic sm"><span class="bd">${initials(n)}</span>${heroPic(n)}</span>`}
