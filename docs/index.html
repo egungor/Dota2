@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dota 2 Patch Notes — Summaries</title>
+<meta name="description" content="Visual, easy-to-read summaries of Dota 2 gameplay patches.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0f13;--panel:#151920;--panel2:#1b2029;--line:#2a313d;--txt:#e6e8ec;--mut:#9aa3b2;--red:#d0412f;--gold:#e3b456}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:15.5px/1.6 Inter,system-ui,sans-serif;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:960px;margin:0 auto;padding:2.5rem 1.2rem 4rem}
+header{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:18px;padding:2.4rem 2rem;
+  background:radial-gradient(900px 340px at 90% -20%,rgba(208,65,47,.45),transparent 60%),#12151b}
+header img{position:absolute;right:-20px;top:50%;transform:translateY(-50%);width:300px;max-width:55%;opacity:.16;pointer-events:none}
+header .tag{font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold)}
+h1{font-family:Cinzel,serif;font-size:2.6rem;line-height:1.1;margin:.4rem 0 .5rem;font-weight:800;background:linear-gradient(90deg,#fff,#f3c98a);-webkit-background-clip:text;background-clip:text;color:transparent}
+header p{max-width:560px;color:#c9ced8;margin:0}
+h2{font-family:Cinzel,serif;font-size:1.3rem;margin:2.4rem 0 1rem}
+.list{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{display:block;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.3rem;transition:border-color .15s,transform .15s}
+.card:hover{border-color:rgba(208,65,47,.6);transform:translateY(-2px)}
+.card .v{font-family:Cinzel,serif;font-size:1.9rem;font-weight:800;color:#fff}
+.card .d{font-size:.82rem;color:var(--gold);letter-spacing:.5px;text-transform:uppercase}
+.card p{font-size:.9rem;color:#c3c8d2;margin:.5rem 0 .8rem}
+.langs{display:flex;gap:.4rem}
+.langs a{font-size:.78rem;font-weight:700;padding:.2rem .65rem;border-radius:99px;border:1px solid var(--line);color:var(--mut)}
+.langs a:hover{color:#fff;border-color:#fff}
+.langs a.main{background:var(--red);border-color:var(--red);color:#fff}
+footer{margin-top:3rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line);padding-top:1rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="./assets/img/dota2-logo.png" alt="" aria-hidden="true">
+    <div class="tag">Patch notes, visualized</div>
+    <h1>Dota 2 Patch Summaries</h1>
+    <p>Clear, visual breakdowns of each gameplay patch: mechanics, economy, map, items, neutral items and heroes, with links to dota2.com and Liquipedia.</p>
+  </header>
+
+  <h2>Patches</h2>
+  <div class="list">
+    <!-- New patches go at the top: copy this card and point it to docs/patches/<version>/ -->
+    <div class="card">
+      <a href="./patches/7.42/">
+        <div class="d">Gameplay Update · Nov 18, 2026</div>
+        <div class="v">Patch 7.42</div>
+        <p>200 base health, weaker spells, Item Potency, a 15:00 Tormentor, a new economy, map changes and 6 new items.</p>
+      </a>
+      <div class="langs">
+        <a class="main" href="./patches/7.42/" hreflang="en">English</a>
+        <a href="./patches/7.42/tr.html" hreflang="tr">Türkçe</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>Unofficial fan summaries. Dota 2 is a trademark of Valve Corporation. Numbers come from the official patch notes and publications that compiled them.</footer>
+</div>
+</body>
+</html>
